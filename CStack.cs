@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Inlamning_3_ra_kod
 {
@@ -22,17 +23,70 @@ namespace Inlamning_3_ra_kod
         public double X, Y, Z, T;
         public string entry;
         public string letter;
+        public string middleMan;
         public string[] variable;
+        public string[] readFile;
         /* CONSTRUCTOR: CStack
          * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
          * PARAMETERS: --
          */
         public CStack()
         {
-            X = Y = Z = T = 0;
+            variable = new string[8] { "", "", "", "", "", "", "", "" };
+            if (File.Exists(@"C:\Users\Dator 1\calcsetup.txt"))
+            {
+                readFile = File.ReadAllLines(@"C:\Users\Dator 1\calcsetup.txt");
+                for (int i = 0; i < readFile.Length; i++)
+                {
+                    middleMan = readFile[i];
+                    string[] readSplit = middleMan.Split(' ');
+                    switch (readSplit[0])
+                    {
+                        case "A:":
+                            variable[0] = readSplit[1];
+                            break;
+                        case "B:":
+                            variable[1] = readSplit[1];
+                            break;
+                        case "C:":
+                            variable[2] = readSplit[1];
+                            break;
+                        case "D:":
+                            variable[3] = readSplit[1];
+                            break;
+                        case "E:":
+                            variable[4] = readSplit[1];
+                            break;
+                        case "F:":
+                            variable[5] = readSplit[1];
+                            break;
+                        case "G:":
+                            variable[6] = readSplit[1];
+                            break;
+                        case "H:":
+                            variable[7] = readSplit[1];
+                            break;
+                        case "T:":
+                            T = double.Parse(readSplit[1]);
+                            break;
+                        case "X:":
+                            X = double.Parse(readSplit[1]);
+                            break;
+                        case "Y:":
+                            Y = double.Parse(readSplit[1]);
+                            break;
+                        case "Z:":
+                            Z = double.Parse(readSplit[1]);
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                X = Y = Z = T = 0;
+            }
             entry = "";
             letter = "";
-            variable = new string[8] { "", "", "", "", "", "", "", "" };
         }
         /* METHOD: Exit
          * PURPOSE: called on exit, prepared for saving
@@ -56,7 +110,7 @@ namespace Inlamning_3_ra_kod
         /* METHOD: VarString
          * PURPOSE: construct a string to write out in a variable list
          * PARAMETERS: --
-         * RETURNS: NOT YET IMPLEMENTED
+         * RETURNS: string containing the values of all the variables with newlines between them
          */
         public string VarString()
         {
