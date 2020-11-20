@@ -21,6 +21,8 @@ namespace Inlamning_3_ra_kod
     {
         public double X, Y, Z, T;
         public string entry;
+        public string letter;
+        public string[] variable;
         /* CONSTRUCTOR: CStack
          * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
          * PARAMETERS: --
@@ -29,6 +31,8 @@ namespace Inlamning_3_ra_kod
         {
             X = Y = Z = T = 0;
             entry = "";
+            letter = "";
+            variable = new string[8] { "", "", "", "", "", "", "", "" };
         }
         /* METHOD: Exit
          * PURPOSE: called on exit, prepared for saving
@@ -56,7 +60,7 @@ namespace Inlamning_3_ra_kod
          */
         public string VarString()
         {
-            return "insertme";
+            return $"{variable[0]}\n{variable[1]}\n{variable[2]}\n{variable[3]}\n{variable[4]}\n{variable[5]}\n{variable[6]}\n{variable[7]}\n";
         }
         /* METHOD: SetX
          * PURPOSE: set X with overwrite
@@ -249,7 +253,7 @@ namespace Inlamning_3_ra_kod
          */
         public void SetAddress(string name)
         {
-
+            letter = name;
         }
         /* METHOD: SetVar
          * PURPOSE: 
@@ -259,7 +263,33 @@ namespace Inlamning_3_ra_kod
          */
         public void SetVar()
         {
-
+            switch (letter)
+            {
+                case "A":
+                    variable[0] = Convert.ToString(X);
+                    break;
+                case "B":
+                    variable[1] = Convert.ToString(X);
+                    break;
+                case "C":
+                    variable[2] = Convert.ToString(X);
+                    break;
+                case "D":
+                    variable[3] = Convert.ToString(X);
+                    break;
+                case "E":
+                    variable[4] = Convert.ToString(X);
+                    break;
+                case "F":
+                    variable[5] = Convert.ToString(X);
+                    break;
+                case "G":
+                    variable[6] = Convert.ToString(X);
+                    break;
+                case "H":
+                    variable[7] = Convert.ToString(X);
+                    break;
+            }
         }
         /* METHOD: GetVar
          * PURPOSE: 
@@ -269,7 +299,57 @@ namespace Inlamning_3_ra_kod
          */
         public void GetVar()
         {
-
+            switch (letter)
+            {
+                case "A":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[0]);
+                    }
+                    break;
+                case "B":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[1]);
+                    }                    
+                    break;
+                case "C":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[2]);
+                    }                    
+                    break;
+                case "D":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[3]);
+                    }                    
+                    break;
+                case "E":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[4]);
+                    }                    
+                    break;
+                case "F":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[5]);
+                    }
+                    break;
+                case "G":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[6]);
+                    }   
+                    break;
+                case "H":
+                    if (variable[0] != "")
+                    {
+                        T = Z; Z = Y; Y = X; X = Convert.ToDouble(variable[7]);
+                    }
+                    break;
+            }
         }
     }
 }
