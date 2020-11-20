@@ -246,8 +246,8 @@ namespace Inlamning_3_ra_kod
             T = Z; Z = Y; Y = X; X = newX;
         }
         /* METHOD: SetAddress
-         * PURPOSE: 
-         * PARAMETERS: string name - variable name
+         * PURPOSE: Stores what letter the user has selected
+         * PARAMETERS: string name - name of the variable
          * RETURNS: --
          * FEATURES: NOT YET IMPLEMENTED
          */
@@ -256,10 +256,10 @@ namespace Inlamning_3_ra_kod
             letter = name;
         }
         /* METHOD: SetVar
-         * PURPOSE: 
+         * PURPOSE: Stores the value of X into one of eight variables
          * PARAMETERS: --
          * RETURNS: --
-         * FEATURES: NOT YET IMPLEMENTED
+         * FEATURES: Old value of the variable is dropped
          */
         public void SetVar()
         {
@@ -292,10 +292,10 @@ namespace Inlamning_3_ra_kod
             }
         }
         /* METHOD: GetVar
-         * PURPOSE: 
+         * PURPOSE: Rolls the stack up and puts in the value stored in a variable into X
          * PARAMETERS: --
          * RETURNS: --
-         * FEATURES: NOT YET IMPLEMENTED
+         * FEATURES: T is dropped
          */
         public void GetVar()
         {
