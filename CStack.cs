@@ -60,7 +60,7 @@ namespace Inlamning_3_ra_kod
          */
         public string VarString()
         {
-            return $"{variable[0]}\n{variable[1]}\n{variable[2]}\n{variable[3]}\n{variable[4]}\n{variable[5]}\n{variable[6]}\n{variable[7]}\n";
+            return $"{variable[0]}\n{variable[1]}\n{variable[2]}\n{variable[3]}\n{variable[4]}\n{variable[5]}\n{variable[6]}\n{variable[7]}\n{letter}";
         }
         /* METHOD: SetX
          * PURPOSE: set X with overwrite
